@@ -1,0 +1,2 @@
+create a ray tracing application to generate images based on a 3D scene specified in a JSON file. Start with spheres,
+  cubes, lights and camera.
