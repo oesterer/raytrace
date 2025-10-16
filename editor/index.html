@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Raytrace Scene Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/examples/jsm/controls/OrbitControls.js": "https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js",
+                "three/examples/jsm/controls/TransformControls.js": "https://unpkg.com/three@0.158.0/examples/jsm/controls/TransformControls.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="viewport" id="viewport"></div>
+        <div class="sidebar">
+            <section>
+                <h1>Scene Objects</h1>
+                <div class="toolbar">
+                    <button id="add-sphere">Add Sphere</button>
+                    <button id="add-cube">Add Cube</button>
+                    <button id="add-light">Add Light</button>
+                </div>
+                <select id="object-list" size="8"></select>
+                <div class="transform-mode">
+                    <label><input type="radio" name="transform" value="translate" checked>Translate</label>
+                    <label><input type="radio" name="transform" value="none">None</label>
+                </div>
+                <button id="delete-entity" class="danger">Delete Selected</button>
+            </section>
+
+            <section id="entity-editor" hidden>
+                <h1>Properties</h1>
+                <form id="entity-form"></form>
+            </section>
+
+            <section>
+                <h1>Camera</h1>
+                <form id="camera-form">
+                    <div class="field-group">
+                        <label>Position X <input type="number" step="0.1" name="posX"></label>
+                        <label>Y <input type="number" step="0.1" name="posY"></label>
+                        <label>Z <input type="number" step="0.1" name="posZ"></label>
+                    </div>
+                    <div class="field-group">
+                        <label>Look At X <input type="number" step="0.1" name="lookX"></label>
+                        <label>Y <input type="number" step="0.1" name="lookY"></label>
+                        <label>Z <input type="number" step="0.1" name="lookZ"></label>
+                    </div>
+                    <div class="field-group">
+                        <label>Up X <input type="number" step="0.1" name="upX"></label>
+                        <label>Y <input type="number" step="0.1" name="upY"></label>
+                        <label>Z <input type="number" step="0.1" name="upZ"></label>
+                    </div>
+                    <div class="field-group">
+                        <label>FOV <input type="number" step="1" name="fov"></label>
+                        <label>Width <input type="number" step="1" name="width"></label>
+                        <label>Height <input type="number" step="1" name="height"></label>
+                    </div>
+                    <button type="button" id="focus-origin">Focus Origin</button>
+                    <button type="button" id="sync-from-view">Sync From View</button>
+                </form>
+            </section>
+
+            <section>
+                <h1>Scene JSON</h1>
+                <div class="toolbar">
+                    <button id="export-json">Export</button>
+                    <label class="import-button">Import<input type="file" id="import-json" accept="application/json"></label>
+                    <button id="copy-json">Copy</button>
+                </div>
+                <textarea id="scene-json" rows="6" placeholder="Scene JSON output..." readonly></textarea>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
