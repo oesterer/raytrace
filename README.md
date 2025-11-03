@@ -2,6 +2,8 @@
 
 This project provides a minimal ray tracer that renders images from 3D scenes described in JSON. The current implementation supports perspective cameras, diffuse materials, point lights, spheres, and axis-aligned cubes. Output images are written in the PPM (P3) format to avoid external dependencies.
 
+![Rendered sample scene](output.jpg)
+
 ## Usage
 
 ```bash
